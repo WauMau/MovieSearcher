@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { SearchBar } from '../components/SearchBar';
 import { MovieCard } from '../components/MovieCard';
-import { searchMovies } from '../services/api';
+import { getPopularMovies } from '../services/popularMovies';
 import { Movie } from '../types/movie';
 
 const HomePage = () => {
   const navigate = useNavigate();
   const { data: popularMovies, isLoading } = useQuery({
     queryKey: ['popularMovies'],
-    queryFn: () => searchMovies('movie'),
+    queryFn: () => getPopularMovies(),
   });
 
   const handleSearch = (query: string) => {
