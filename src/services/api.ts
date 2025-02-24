@@ -57,7 +57,6 @@ export const searchMovies = async (query: string, page = 1, year?: string) => {
   }
 };
 
-// Добавляем функцию getPopularMovies
 export const getPopularMovies = async (page = 1) => {
   // Так как OMDB API не имеет эндпоинта для популярных фильмов,
   // мы можем использовать поиск по популярному термину или жанру
