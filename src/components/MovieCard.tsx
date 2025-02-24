@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Heart } from 'lucide-react';
 import { Movie } from '../types/movie';
-import { getImageUrl } from '../services/api';
+import { getImageUrl } from '../../services/api';
 
 interface MovieCardProps {
   movie: Movie;
