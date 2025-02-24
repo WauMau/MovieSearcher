@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Movie, MovieDetails } from '../types/movie';
 
 const BASE_URL = 'https://www.omdbapi.com';
-const API_KEY = ''; // Free tier, no API key needed
+const API_KEY = '6105a5dc'; // Free tier, no API key needed
 
 export const api = axios.create({
   baseURL: BASE_URL,
