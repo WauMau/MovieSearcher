@@ -8,6 +8,10 @@ export const api = axios.create({
   baseURL: BASE_URL,
 });
 
+export const getImageUrl = (posterPath: string) => {
+  return posterPath !== 'N/A' ? posterPath : 'https://via.placeholder.com/500x750';
+};
+
 export const searchMovies = async (query: string, page = 1, year?: string) => {
   try {
     const response = await api.get('/', {
@@ -31,7 +35,7 @@ export const searchMovies = async (query: string, page = 1, year?: string) => {
     const movies = response.data.Search.map((movie: any) => ({
       id: movie.imdbID,
       title: movie.Title,
-      poster_path: movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/500x750',
+      poster_path: getImageUrl(movie.Poster),
       release_date: movie.Year,
       vote_average: 0,
       overview: '',
@@ -52,4 +56,3 @@ export const searchMovies = async (query: string, page = 1, year?: string) => {
     };
   }
 };
-
