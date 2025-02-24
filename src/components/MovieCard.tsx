@@ -19,7 +19,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({
   
   return (
     <div className="group relative bg-gray-800 rounded-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
-      <Link to={/movie/${movie.id}}>
+      <Link to={`/movie/${movie.id}`}>
         <img
           src={getImageUrl(movie.poster_path)}
           alt={movie.title}
@@ -39,9 +39,9 @@ export const MovieCard: React.FC<MovieCardProps> = ({
             className="p-2 rounded-full hover:bg-gray-700 transition-colors"
           >
             <Heart
-              className={w-5 h-5 ${
+              className={`w-5 h-5 ${
                 isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-400'
-              }}
+              }`}
             />
           </button>
         </div>
