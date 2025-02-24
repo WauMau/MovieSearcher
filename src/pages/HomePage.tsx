@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { SearchBar } from '../components/SearchBar';
 import { MovieCard } from '../components/MovieCard';
-import { getPopularMovies } from '../services/api';
+import { searchMovies } from '../services/api';
 import { Movie } from '../types/movie';
 
 const HomePage = () => {
   const navigate = useNavigate();
   const { data: popularMovies, isLoading } = useQuery({
     queryKey: ['popularMovies'],
-    queryFn: () => getPopularMovies(),
+    queryFn: () => searchMovies('movie'),
   });
 
   const handleSearch = (query: string) => {
@@ -33,7 +33,6 @@ const HomePage = () => {
           </p>
           <SearchBar onSearch={handleSearch} />
         </div>
-
         <section className="mt-16">
           <h2 className="text-2xl font-semibold mb-6">Popular Movies</h2>
           {isLoading ? (
